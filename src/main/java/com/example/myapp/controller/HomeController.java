@@ -53,18 +53,6 @@ public class HomeController
 	@Value("${default.page.size}")
 	private int						pageSize;
 
-	//	@GetMapping(value = {"/"})
-	//	public ModelAndView getHomePage(Model model, HttpServletRequest req, HttpServletResponse res, 
-	//			@RequestParam(value = "pageNo",defaultValue = "0") int pageNo,
-	//			@RequestParam(value = "pageSize",defaultValue = "5") int pageSize,
-	//			@RequestParam(value = "sortfield",defaultValue = "humanId") String sortBy) {
-	//		ModelAndView mv = new ModelAndView();
-	////		mv.addObject("humanList", humanService.getAllHumanByDescOrder());
-	//		mv.addObject("humanList", humanService.getPaginationHumanData(pageNo, pageSize, sortBy));
-	//		mv.addObject("totalRecord", humanRepo.count());
-	//		mv.setViewName("Home");
-	//		return mv;
-	//	}
 
 	@GetMapping(value = { "/" })
 	public String getHomePage(Model model)
@@ -99,11 +87,12 @@ public class HomeController
 		List<Human> list = null;
 		//sessionFactory = entityManagerFactory.unwrap(SessionFactory.class);
 		Criteria criteria = sessionFactory.openSession().createCriteria(Human.class);
+		/*
 		System.out.println("===> " + request.getParameter("pageNo"));
 		System.out.println("===> " + request.getParameter("recordsPerPage"));
 		System.out.println("===> " + request.getParameter("orderBy"));
 		System.out.println("===> " + request.getParameter("orderDirection"));
-
+		*/
 		ListNavigation listNavigation = new ListNavigation(Integer.parseInt(request.getParameter("pageNo")));
 		listNavigation.setRecordsPerPage(Integer.parseInt(request.getParameter("recordsPerPage")));
 		
