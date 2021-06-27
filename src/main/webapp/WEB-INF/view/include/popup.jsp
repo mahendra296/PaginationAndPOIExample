@@ -5,8 +5,7 @@
 	</div>
 
 	<div id="commonPopup_alertMessageDiv" style="display: none;"></div>
-	<div id="error_box"  class="error_box_Div" style="display: none;"></div>
-	<div id="error_box2" style="display: none; background-position: 21px 10px;"></div>
+	<div id="error_box"  class="error_box_Div" style="display: none;background-color: red;"></div>
 	<div id="popup_txt">
 		<h2>
 			<span id="commonPopup_messageDiv"></span>

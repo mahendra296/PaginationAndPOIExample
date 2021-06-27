@@ -31,9 +31,9 @@ public class DocumentServiceImpl implements DocumentService
 	private EntityManager	entityManager;
 
 	@Override
-	public void saveDocument(Document document)
+	public Document saveDocument(Document document)
 	{
-		documentRepo.save(document);
+		return documentRepo.save(document);
 	}
 
 	@Override

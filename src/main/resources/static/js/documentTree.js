@@ -435,12 +435,15 @@ document_dTree.prototype.toStringForViewDocumentBank = function() {
 	return str;
 };
 // Creates the tree structure
-document_dTree.prototype.addNodeForDocumentBank = function(pNode) {
+document_dTree.prototype.addNodeForDocumentBank = function(pNode) 
+{
 	var str = '';
 	var n=0;
 	if (this.config.inOrder) n = pNode._ai;
-	for (n; n<this.aNodes.length; n++) {
-		if (this.aNodes[n].pid == pNode.id) {
+	for (n; n<this.aNodes.length; n++) 
+	{
+		if (this.aNodes[n].pid == pNode.id) 
+		{
 			var cn = this.aNodes[n];
 			cn._p = pNode;
 			cn._ai = n;
@@ -448,7 +451,8 @@ document_dTree.prototype.addNodeForDocumentBank = function(pNode) {
 			if (!cn.target && this.config.target) cn.target = this.config.target;
 			if (cn._hc && !cn._io && this.config.useCookies) cn._io = this.isOpen(cn.id);
 			if (!this.config.folderLinks && cn._hc) cn.url = null;
-			if (this.config.useSelection && cn.id == this.selectedNode && !this.selectedFound) {
+			if (this.config.useSelection && cn.id == this.selectedNode && !this.selectedFound) 
+			{
 					cn._is = true;
 					this.selectedNode = n;
 					this.selectedFound = true;
@@ -503,7 +507,7 @@ document_dTree.prototype.nodeForDocumentBank = function(node, nodeId)
 	else if ((!this.config.folderLinks || !node.url) && node._hc && node.pid != this.root.id)
 		str += '<a href="javascript: ' + this.obj + '.openNode(' + nodeId + ');" class="node">';
 	//str += node.name;
-	if(node.name=='<b style="font-size: 14px;">Document Bank</b>')
+	if(node.name=='<b style="font-size: 14px;">Document</b>')
 	{
 		
 		/*str += node.name;*/
@@ -519,7 +523,7 @@ document_dTree.prototype.nodeForDocumentBank = function(node, nodeId)
 			
 			str += "  <a href=\"javascript:fileDownload('"+node.id+"','"+string+"')\">"+node.title+"</a> "+" "+" <a href=\"javascript:deleteCategory('"+node.id+"','"+string+"','"+flag+"')\"><img src=\""+imgPathWithTheme+"deleteDocBank.png\" alt=\"Delete\" title=\"Delete\"></a> ";
 			else
-			str += "<b>"+node.name+"</b>"+" "+"<a href=\"#\"  onclick=\"openWindow('/esourcingWeb/manageDocumentBankFileUpload.do?action=fileUpload&flag=1&&documentBankID='+"+node.id+",'50','width=900,height=450')\"><img src=\""+imgPathWithTheme+"uploadDocBank.png\" alt=\"Upload File\" title=\"Upload File\"></a>  <a href=\"javascript:modifyCategory('"+node.id+"','"+string+"')\"><img src=\""+imgPathWithTheme+"editDocBank.png\" alt=\"Edit\" title=\"Edit\"></a> <a href=\"javascript:deleteCategory('"+node.id+"','"+string+"','"+flag1+"')\"><img src=\""+imgPathWithTheme+"deleteDocBank.png\" alt=\"Delete\" title=\"Delete\"></a> <a href=\"javascript:addSubCategory('"+node.id+"','"+string+"')\"><img src=\""+imgPathWithTheme+"addDocBank.png\" alt=\"New Sub-Folder\" title=\"New Sub-Folder\"></a>";
+			str += "<b>"+node.name+"</b>"+" "+"<a href=\"#\"  onclick=\"openWindow('/esourcingWeb/manageDocumentBankFileUpload.do?action=fileUpload&flag=1&&documentBankID='+"+node.id+",'50','width=900,height=450')\"><img src=\""+imgPathWithTheme+"uploadDocBank.png\" alt=\"Upload File\" title=\"Upload File\"></a>  <a href=\"javascript:modifyCategory('"+node.id+"','"+string+"')\"><img src=\""+imgPathWithTheme+"editDocBank.png\" alt=\"Edit\" title=\"Edit\"></a> <a href=\"javascript:deleteCategory('"+node.id+"','"+string+"','"+flag1+"')\"><img src=\""+imgPathWithTheme+"deleteDocBank.png\" alt=\"Delete\" title=\"Delete\"></a> <a href=\"javascript:addSubDocument('"+node.id+"','"+string+"')\"><img src=\""+imgPathWithTheme+"addDocBank.png\" alt=\"New Sub-Folder\" title=\"New Sub-Folder\"></a>";
 	}
 	if (node.url || ((!this.config.folderLinks || !node.url) && node._hc)) str += '</a>';
 	str += '</div>';
@@ -560,7 +564,7 @@ document_dTree.prototype.nodeForViewDocumentBank = function(node, nodeId) {
 	//}
 	//else
 	//{
-	//	str += node.name+" <a href=\"javascript:modifyCategory('"+node.id+"','"+node.name+"')\"><img src=\""+imgPathWithTheme+"modify.gif\" alt=\"edit\"></a> <a href=\"javascript:deleteCategory('"+node.id+"')\"><img src=\""+imgPathWithTheme+"delete.gif\" alt=\"delete\"></a> <a href=\"javascript:addSubCategory('"+node.id+"','"+node.name+"')\"><img src=\""+imgPathWithTheme+"addCatregory.gif\" alt=\"add subcategory\"></a>";
+	//	str += node.name+" <a href=\"javascript:modifyCategory('"+node.id+"','"+node.name+"')\"><img src=\""+imgPathWithTheme+"modify.gif\" alt=\"edit\"></a> <a href=\"javascript:deleteCategory('"+node.id+"')\"><img src=\""+imgPathWithTheme+"delete.gif\" alt=\"delete\"></a> <a href=\"javascript:addSubDocument('"+node.id+"','"+node.name+"')\"><img src=\""+imgPathWithTheme+"addCatregory.gif\" alt=\"add subcategory\"></a>";
 	//}
 	if (node.url || ((!this.config.folderLinks || !node.url) && node._hc)) str += '</a>';
 	str += '</div>';
@@ -587,12 +591,15 @@ document_dTree.prototype.toStringDocumentBank = function() {
 	return str;
 };
 // Creates the tree structure
-document_dTree.prototype.addNodeDocumentBank = function(pNode) {
+document_dTree.prototype.addNodeDocumentBank = function(pNode) 
+{
 	var str = '';
 	var n=0;
 	if (this.config.inOrder) n = pNode._ai;
-	for (n; n<this.aNodes.length; n++) {
-		if (this.aNodes[n].pid == pNode.id) {
+	for (n; n<this.aNodes.length; n++) 
+	{
+		if (this.aNodes[n].pid == pNode.id) 
+		{
 			var cn = this.aNodes[n];
 			cn._p = pNode;
 			cn._ai = n;
@@ -600,7 +607,8 @@ document_dTree.prototype.addNodeDocumentBank = function(pNode) {
 			if (!cn.target && this.config.target) cn.target = this.config.target;
 			if (cn._hc && !cn._io && this.config.useCookies) cn._io = this.isOpen(cn.id);
 			if (!this.config.folderLinks && cn._hc) cn.url = null;
-			if (this.config.useSelection && cn.id == this.selectedNode && !this.selectedFound) {
+			if (this.config.useSelection && cn.id == this.selectedNode && !this.selectedFound) 
+			{
 					cn._is = true;
 					this.selectedNode = n;
 					this.selectedFound = true;
@@ -613,13 +621,16 @@ document_dTree.prototype.addNodeDocumentBank = function(pNode) {
 };
 var tempArr=[];
 //Creates the node icon, url and text
-document_dTree.prototype.nodeDocumentBank = function(node, nodeId) {
-var traversalNode=node;
+document_dTree.prototype.nodeDocumentBank = function(node, nodeId) 
+{
+	var traversalNode=node;
 	var str = '<div class="document_dTreeNode">' + this.indent(node, nodeId);
-	if (this.config.useIcons) {
+	if (this.config.useIcons) 
+	{
 		if (!node.icon) node.icon = (this.root.id == node.pid) ? this.icon.root : ((node._hc) ? this.icon.folder : this.icon.node);
 		if (!node.iconOpen) node.iconOpen = (node._hc) ? this.icon.folderOpen : this.icon.node;
-		if (this.root.id == node.pid) {
+		if (this.root.id == node.pid) 
+		{
 			node.icon = this.icon.root;
 			node.iconOpen = this.icon.root;
 		}
@@ -628,7 +639,7 @@ var traversalNode=node;
 	else if ((!this.config.folderLinks || !node.url) && node._hc && node.pid != this.root.id)
 		str += '<a href="javascript: ' + this.obj + '.openNode(' + nodeId + ');" class="node">';
 	//str += node.name;
-	if(node.name=='<b style="font-size: 14px;">Document Bank</b>')
+	if(node.name=='<b style="font-size: 14px;">Document</b>')
 	{
 		str += node.name;
 	}

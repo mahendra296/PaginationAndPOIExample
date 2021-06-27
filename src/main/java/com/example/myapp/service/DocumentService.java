@@ -9,7 +9,7 @@ import com.example.myapp.model.Document;
 public interface DocumentService
 {
 
-	public void saveDocument(Document document);
+	public Document saveDocument(Document document);
 
 	public List<Document> getAllDocument();
 
